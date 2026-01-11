@@ -1,65 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
 
-/* ===== Reset ===== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== Base Styles ===== */
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f2f2f2;
     color: #333;
 }
 
-/* ===== Header & Navigation ===== */
+
 header {
-    background-color: #0056b3;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    width: 100%;
 }
 
-#course-title {
-    display: block;
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 10px;
+.header-title {
+    background-color: #3b4a5a;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
+
 
 nav {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #333;
-    border-radius: 5px;
+    justify-content: space-around;
+    background-color: #2b2b2b;
+    padding: 0.8rem 0;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    font-weight: 600;
 }
 
 nav a:hover {
-    background-color: #004494;
+    text-decoration: underline;
 }
 
-li {
-    color: #0056b3;
-    margin: 5px;
-    padding: 5px;
-}
-
-/* ===== Main Layout ===== */
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.5rem;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -69,107 +59,105 @@ main {
 main h1 {
     grid-column: 1 / -1;
     text-align: center;
-    margin-bottom: 2rem;
     font-family: 'Roboto', sans-serif;
-    color: #0056b3;
+    color: #3b4a5a;
+    margin-bottom: 1rem;
 }
 
-/* ===== Cards ===== */
+
 .card {
-    background: #fff;
-    padding: 1rem;
+    background-color: #fff;
+    padding: 1.5rem;
     border-radius: 8px;
 }
 
 .card h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+    background-color: #3b4a5a;
     color: #fff;
-    text-align: center;
-    margin-bottom: 10px;
-    background-color: #004494;
+    padding: 0.6rem;
     border-radius: 5px;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-/* ===== Images ===== */
+
+.about-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.about-flex p {
+    max-width: 60%;
+}
+
+
+.location-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.location-flex p {
+    max-width: 65%;
+}
+
+
 img {
-    width: 160px;
+    width: 150px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
-sect1 img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* ===== Sections ===== */
-.sect1,
-.sect2 {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.sect1 {
-    align-items: flex-end;
-    text-align: right;
-}
-
-.sect1 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.sect1 p {
-    order: 1;
-    margin-bottom: 0.5rem;
-    text-align: left;
-}
-
-.sect2 {
-    align-items: flex-start;
-    text-align: left;
-}
-
-.sect1 p,
-.sect2 p {
-    max-width: 300px;
-}
-
-/* ===== Underline ===== */
 .underline {
-    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
     display: inline-block;
-    padding-bottom: 0.3rem;
+    position: relative;
 }
 
 .underline::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -4px;
     width: 100%;
     height: 3px;
     background-color: #333;
 }
 
-/* ===== Footer ===== */
-footer {
-    background-color: #0056b3;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
+
+.resources {
+    list-style: disc;
+    padding-left: 1.5rem;
 }
 
-footer p {
-    margin: 5px 0;
+.resources li {
+    margin-bottom: 0.5rem;
+}
+
+.resources a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.resources a:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    background-color: #3b4a5a;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 #lastModified {
-    color: #edb211;
-    font-weight: 500;
+    color: #f4c430;
+    font-weight: 600;
 }
