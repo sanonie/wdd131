@@ -109,7 +109,8 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .weather-section h2::after {
-        display: none;
+        display: block;
+        /* Keep the icon visible on mobile */
     }
 
     .weather-icon {
@@ -117,10 +118,8 @@ footer {
     }
 
     .weather-section h2::before {
-        content: "";
-        width: 32px;
-        height: 32px;
-        background: url("../images/wind-icon.webp") no-repeat center / contain;
+        display: none;
+        /* Remove the wind icon on mobile */
     }
 
 }
