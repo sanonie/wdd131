@@ -1,33 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f2f2f2;
     color: #333;
+    line-height: 1.6;
 }
-
 
 header {
     width: 100%;
 }
 
 .header-title {
-    background-color: #3b4a5a;
+    background-color: #007A3D;
     color: #fff;
     text-align: center;
     padding: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
 }
-
 
 nav {
     display: flex;
@@ -40,46 +37,79 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 main {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
 }
 
 main h1 {
-    grid-column: 1 / -1;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    color: #3b4a5a;
+    color: #007A3D;
     margin-bottom: 1rem;
 }
-
 
 .card {
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .card h2 {
-    background-color: #3b4a5a;
+    background-color: #007A3D;
     color: #fff;
     padding: 0.6rem;
     border-radius: 5px;
     text-align: center;
     margin-bottom: 1rem;
 }
-
 
 .about-flex {
     display: flex;
@@ -93,7 +123,6 @@ main h1 {
     max-width: 60%;
 }
 
-
 .location-flex {
     display: flex;
     align-items: center;
@@ -105,11 +134,10 @@ main h1 {
     max-width: 65%;
 }
 
-
 img {
-    width: 150px;
-    height: 200px;
     border-radius: 6px;
+    max-width: 100%;
+    height: auto;
 }
 
 .underline {
@@ -126,9 +154,27 @@ img {
     bottom: -4px;
     width: 100%;
     height: 3px;
-    background-color: #333;
+    background-color: #007A3D;
 }
 
+.highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.highlights li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.highlights li::before {
+    content: "✓";
+    color: #007A3D;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
 
 .resources {
     list-style: disc;
@@ -148,16 +194,93 @@ img {
     text-decoration: underline;
 }
 
-
 footer {
-    background-color: #3b4a5a;
+    background-color: #007A3D;
     color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
 }
 
-#lastModified {
+footer a {
+    color: #FC3D21;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#lastModified, #last-modified {
     color: #f4c430;
     font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        top: 75%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-flex p {
+        max-width: 100%;
+    }
+
+    .location-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-flex p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        display: none;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
 }

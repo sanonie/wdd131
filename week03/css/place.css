@@ -182,3 +182,32 @@ header {
         padding: 0.6rem;
     }
 }
+
+/* Fact Display */
+.fact-display {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.fact-display h3 {
+    color: #007A3D;
+    margin-bottom: 0.5rem;
+}
+
+#refresh-fact {
+    background: #FC3D21;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+#refresh-fact:hover {
+    background: #e63946;
+}

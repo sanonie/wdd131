@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities in Madagascar - Adventure Awaits</title>
+    <meta name="description"
+        content="Discover exciting activities in Madagascar including wildlife viewing, hiking, diving, and cultural experiences.">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="css/activities.css">
+    <script src="js/activities.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            Madagascar Tourism
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="place.html">Place</a>
+            <a href="activities.html">Activities</a>
+            <a href="accommodations.html">Accommodations</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="../images/adventure.jpg" alt="Adventure activities in Madagascar" loading="lazy">
+            <h1>Activities in Madagascar</h1>
+            <p>Experience the thrill of Madagascar's unique adventures and natural wonders.</p>
+        </section>
+
+        <section class="activities-grid">
+            <article class="activity-card">
+                <img src="../images/lemur.jpeg" alt="Lemurs in their natural habitat" loading="lazy">
+                <h3>Lemur Watching</h3>
+                <p>Observe over 100 species of lemurs in their natural habitats. A unique experience found nowhere else
+                    on Earth.</p>
+                <button class="favorite-btn" data-activity="lemur">Add to Favorites</button>
+            </article>
+            <article class="activity-card">
+                <img src="../images/hiking.jpeg" alt="Hikers on a mountain trail" loading="lazy">
+                <h3>Hiking & Trekking</h3>
+                <p>Explore rainforests, mountains, and unique landscapes. Various difficulty levels available for all
+                    experience levels.</p>
+                <button class="favorite-btn" data-activity="hiking">Add to Favorites</button>
+            </article>
+            <article class="activity-card">
+                <img src="../images/diving.jpeg" alt="Underwater coral reef in Madagascar" loading="lazy">
+                <h3>Scuba Diving</h3>
+                <p>Dive into crystal-clear waters with diverse marine life. Experience vibrant coral reefs and unique
+                    underwater ecosystems.</p>
+                <button class="favorite-btn" data-activity="diving">Add to Favorites</button>
+            </article>
+            <article class="activity-card">
+                <img src="../images/cultural.jpeg" alt="Traditional Malagasy cultural ceremonies" loading="lazy">
+                <h3>Cultural Tours</h3>
+                <p>Immerse yourself in authentic Malagasy traditions and connect with local communities.</p>
+                <button class="favorite-btn" data-activity="culture">Add to Favorites</button>
+            </article>
+        </section>
+
+        <section class="favorites-section">
+            <h2>Your Favorite Activities</h2>
+            <div id="favorites-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Madagascar Tourism</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+        <p><a href="citations.html">Sources & Citations</a></p>
+    </footer>
+</body>
+
+</html>

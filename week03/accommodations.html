@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodations in Madagascar - Where to Stay</title>
+    <meta name="description"
+        content="Find the perfect accommodation in Madagascar from luxury resorts to eco-lodges and budget options.">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="css/accommodations.css">
+    <script src="js/accommodations.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            Madagascar Tourism
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="place.html">Place</a>
+            <a href="activities.html">Activities</a>
+            <a href="accommodations.html">Accommodations</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="../images/hero.webp" alt="Luxury accommodations in Madagascar" loading="lazy">
+            <h1>Accommodations in Madagascar</h1>
+            <p>Choose from a variety of comfortable and sustainable lodging options.</p>
+        </section>
+
+        <section class="accommodations-section">
+            <article class="accommodation-card">
+                <img src="../images/kampala.jpeg" alt="Luxurious resort with ocean view" loading="lazy">
+                <h3>Luxury Resorts</h3>
+                <p>Experience world-class amenities, fine dining, and stunning ocean views at our premier resorts.</p>
+                <p class="price">From $300/night</p>
+                <button class="book-btn" data-type="luxury">Book Now</button>
+            </article>
+            <article class="accommodation-card">
+                <img src="../images/lodge.jpeg" alt="Eco-lodge nestled in nature" loading="lazy">
+                <h3>Eco-Lodges</h3>
+                <p>Sustainable stays surrounded by pristine nature and incredible wildlife experiences.</p>
+                <p class="price">From $150/night</p>
+                <button class="book-btn" data-type="eco">Book Now</button>
+            </article>
+            <article class="accommodation-card">
+                <img src="../images/hotel.webp" alt="Budget-friendly hotel" loading="lazy">
+                <h3>Budget Hotels</h3>
+                <p>Clean, comfortable rooms at affordable prices. Perfect for budget-conscious travelers.</p>
+                <p class="price">From $50/night</p>
+                <button class="book-btn" data-type="budget">Book Now</button>
+            </article>
+        </section>
+
+        <section class="booking-form">
+            <h2>Quick Booking</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkin">Check-in Date:</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="nights">Number of Nights:</label>
+                    <input type="number" id="nights" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="accommodation">Accommodation Type:</label>
+                    <select id="accommodation" required>
+                        <option value="">Select type</option>
+                        <option value="luxury">Luxury Resort</option>
+                        <option value="eco">Eco-Lodge</option>
+                        <option value="budget">Budget Hotel</option>
+                    </select>
+                </div>
+                <button type="submit">Submit Booking</button>
+            </form>
+            <div id="bookingConfirmation"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Madagascar Tourism</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+        <p><a href="citations.html">Sources & Citations</a></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Madagascar Tourism - Get in Touch</title>
+    <meta name="description"
+        content="Contact Madagascar Tourism for inquiries, booking assistance, and travel information.">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/contact.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            Madagascar Tourism
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="place.html">Place</a>
+            <a href="activities.html">Activities</a>
+            <a href="accommodations.html">Accommodations</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="../images/hero.webp" alt="Contact Madagascar Tourism" loading="lazy">
+            <h1>Contact Us</h1>
+            <p>Have questions? We're here to help plan your Madagascar adventure.</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <div class="info-item">
+                    <h3>📍 Address</h3>
+                    <p>Madagascar Tourism Board<br>
+                        Antananarivo, Madagascar</p>
+                </div>
+                <div class="info-item">
+                    <h3>📞 Phone</h3>
+                    <p>+261 20 22 345 67</p>
+                </div>
+                <div class="info-item">
+                    <h3>✉️ Email</h3>
+                    <p>info@madagascar-tourism.mg</p>
+                </div>
+                <div class="info-item">
+                    <h3>🕒 Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone (optional):</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="booking">Booking Inquiry</option>
+                            <option value="activities">Activities Information</option>
+                            <option value="accommodations">Accommodation Questions</option>
+                            <option value="general">General Information</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="newsletter">
+                            <input type="checkbox" id="newsletter"> Subscribe to our newsletter
+                        </label>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div id="formMessage"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Madagascar Tourism</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+        <p><a href="citations.html">Sources & Citations</a></p>
+    </footer>
+    <script src="../scripts/getdates.js" defer></script>
+</body>
+
+</html>
