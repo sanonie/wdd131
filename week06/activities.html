@@ -28,44 +28,54 @@
 
     <main>
         <section class="hero">
-            <img src="../images/adventure.jpg" alt="Adventure activities in Madagascar" loading="lazy">
+            <img src="../images/adventure.jpg" alt="Adventure activities in Madagascar" loading="lazy" decoding="async"
+                width="1200" height="500">
             <h1>Activities in Madagascar</h1>
-            <p>Experience the thrill of Madagascar's unique adventures and natural wonders.</p>
         </section>
+
+        <p class="intro">Experience the thrill of Madagascar's unique adventures and natural wonders.</p>
 
         <section class="activities-grid">
             <article class="activity-card">
-                <img src="../images/lemur.jpeg" alt="Lemurs in their natural habitat" loading="lazy">
+                <img src="images/lemur.jpeg" alt="Lemurs in their natural habitat" loading="lazy" decoding="async"
+                    width="600" height="400">
                 <h3>Lemur Watching</h3>
                 <p>Observe over 100 species of lemurs in their natural habitats. A unique experience found nowhere else
                     on Earth.</p>
-                <button class="favorite-btn" data-activity="lemur">Add to Favorites</button>
+                <button class="favorite-btn" data-activity="lemur" aria-pressed="false"
+                    aria-label="Add Lemur Watching to favorites">Add to Favorites</button>
             </article>
             <article class="activity-card">
-                <img src="../images/hiking.jpeg" alt="Hikers on a mountain trail" loading="lazy">
+                <img src="images/hiking.jpeg" alt="Hikers on a mountain trail" loading="lazy" decoding="async"
+                    width="600" height="400">
                 <h3>Hiking & Trekking</h3>
                 <p>Explore rainforests, mountains, and unique landscapes. Various difficulty levels available for all
                     experience levels.</p>
-                <button class="favorite-btn" data-activity="hiking">Add to Favorites</button>
+                <button class="favorite-btn" data-activity="hiking" aria-pressed="false"
+                    aria-label="Add Hiking & Trekking to favorites">Add to Favorites</button>
             </article>
             <article class="activity-card">
-                <img src="../images/diving.jpeg" alt="Underwater coral reef in Madagascar" loading="lazy">
+                <img src="images/diving.jpeg" alt="Underwater coral reef in Madagascar" loading="lazy" decoding="async"
+                    width="600" height="400">
                 <h3>Scuba Diving</h3>
                 <p>Dive into crystal-clear waters with diverse marine life. Experience vibrant coral reefs and unique
                     underwater ecosystems.</p>
-                <button class="favorite-btn" data-activity="diving">Add to Favorites</button>
+                <button class="favorite-btn" data-activity="diving" aria-pressed="false"
+                    aria-label="Add Scuba Diving to favorites">Add to Favorites</button>
             </article>
             <article class="activity-card">
-                <img src="../images/cultural.jpeg" alt="Traditional Malagasy cultural ceremonies" loading="lazy">
+                <img src="images/cultural.jpeg" alt="Traditional Malagasy cultural ceremonies" loading="lazy"
+                    decoding="async" width="600" height="400">
                 <h3>Cultural Tours</h3>
                 <p>Immerse yourself in authentic Malagasy traditions and connect with local communities.</p>
-                <button class="favorite-btn" data-activity="culture">Add to Favorites</button>
+                <button class="favorite-btn" data-activity="culture" aria-pressed="false"
+                    aria-label="Add Cultural Tours to favorites">Add to Favorites</button>
             </article>
         </section>
 
         <section class="favorites-section">
             <h2>Your Favorite Activities</h2>
-            <div id="favorites-list"></div>
+            <div id="favorites-list" role="status" aria-live="polite"></div>
         </section>
     </main>
 

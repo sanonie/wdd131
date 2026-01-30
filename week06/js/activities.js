@@ -1,16 +1,17 @@
-// Activities JavaScript
+
 document.addEventListener('DOMContentLoaded', function () {
     const favoriteButtons = document.querySelectorAll('.favorite-btn');
-    const favoritesList = document.getElementById('favorites-list');
 
-    // Load favorites from localStorage
+
     loadFavorites();
 
-    // Add event listeners to favorite buttons
+
     favoriteButtons.forEach(button => {
         button.addEventListener('click', function () {
             const activity = this.getAttribute('data-activity');
             toggleFavorite(activity);
+
+            updateButtonState(activity);
         });
     });
 
@@ -40,7 +41,9 @@ function loadFavorites() {
     favoritesList.innerHTML = '';
 
     if (favorites.length === 0) {
-        favoritesList.innerHTML = '<p>No favorites selected yet.</p>';
+        favoritesList.innerHTML = `
+            <p>No favorites selected yet.</p>
+        `;
         return;
     }
 
@@ -50,6 +53,18 @@ function loadFavorites() {
         favoriteItem.textContent = formatActivityName(activity);
         favoritesList.appendChild(favoriteItem);
     });
+
+    // Update buttons to reflect saved favorites
+    favorites.forEach(activity => updateButtonState(activity));
+}
+
+function updateButtonState(activity) {
+    const btn = document.querySelector(`.favorite-btn[data-activity="${activity}"]`);
+    if (!btn) return;
+    const favorites = getFavoritesFromStorage();
+    const isFav = favorites.includes(activity);
+    btn.setAttribute('aria-pressed', String(isFav));
+    btn.textContent = isFav ? 'Remove Favorite' : 'Add to Favorites';
 }
 
 function getFavoritesFromStorage() {

@@ -1,28 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Temple Page — styles kept focused and minimal; uses site variables where appropriate */
+:root {
+    --temple-primary: #1e3a8a;
+    --temple-accent: #3b82f6;
+    --temple-bg: #dbeafe;
+    --temple-text: #1e293b;
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    background-color: #dbeafe;
-    color: #1e293b;
+    font-family: 'Lato', var(--font-family);
+    background-color: var(--temple-bg);
+    color: var(--temple-text);
     line-height: 1.6;
 }
 
 header {
     display: flex;
-    background-color: #1e3a8a;
+    background-color: var(--temple-primary);
     color: white;
     padding: 1rem;
-    text-align: center;
     align-items: center;
     justify-content: space-between;
-    text-align: center;
+}
 
+header h1 {
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+#hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+}
+
+nav.show {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--temple-accent);
+}
+
+nav a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--temple-primary);
+    outline: none;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+main h1 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--temple-primary);
+}
+
+.figures {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+figure {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--temple-text);
+}
+
+footer {
+    background-color: var(--temple-primary);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
 }
 
 header h1 {

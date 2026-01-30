@@ -28,28 +28,33 @@
 
     <main>
         <section class="hero">
-            <img src="../images/hero.webp" alt="Luxury accommodations in Madagascar" loading="lazy">
+            <img src="images/hero.webp" alt="Luxury accommodations in Madagascar" loading="lazy" decoding="async"
+                width="1600" height="600">
             <h1>Accommodations in Madagascar</h1>
-            <p>Choose from a variety of comfortable and sustainable lodging options.</p>
         </section>
+
+        <p class="subtitle">Choose from a variety of comfortable and sustainable lodging options.</p>
 
         <section class="accommodations-section">
             <article class="accommodation-card">
-                <img src="../images/kampala.jpeg" alt="Luxurious resort with ocean view" loading="lazy">
+                <img src="images/luxury.jpeg" alt="Luxurious resort with ocean view" loading="lazy" decoding="async"
+                    width="600" height="400">
                 <h3>Luxury Resorts</h3>
                 <p>Experience world-class amenities, fine dining, and stunning ocean views at our premier resorts.</p>
                 <p class="price">From $300/night</p>
                 <button class="book-btn" data-type="luxury">Book Now</button>
             </article>
             <article class="accommodation-card">
-                <img src="../images/lodge.jpeg" alt="Eco-lodge nestled in nature" loading="lazy">
+                <img src="images/lodge.jpeg" alt="Eco-lodge nestled in nature" loading="lazy" decoding="async"
+                    width="600" height="400">
                 <h3>Eco-Lodges</h3>
                 <p>Sustainable stays surrounded by pristine nature and incredible wildlife experiences.</p>
                 <p class="price">From $150/night</p>
                 <button class="book-btn" data-type="eco">Book Now</button>
             </article>
             <article class="accommodation-card">
-                <img src="../images/hotel.webp" alt="Budget-friendly hotel" loading="lazy">
+                <img src="images/redisson.jpg" alt="Budget-friendly hotel" loading="lazy" decoding="async" width="600"
+                    height="400">
                 <h3>Budget Hotels</h3>
                 <p>Clean, comfortable rooms at affordable prices. Perfect for budget-conscious travelers.</p>
                 <p class="price">From $50/night</p>
@@ -62,23 +67,23 @@
             <form id="bookingForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="checkin">Check-in Date:</label>
-                    <input type="date" id="checkin" required>
+                    <input type="date" id="checkin" name="checkin" required>
                 </div>
                 <div class="form-group">
                     <label for="nights">Number of Nights:</label>
-                    <input type="number" id="nights" min="1" required>
+                    <input type="number" id="nights" name="nights" min="1" required>
                 </div>
                 <div class="form-group">
                     <label for="accommodation">Accommodation Type:</label>
-                    <select id="accommodation" required>
+                    <select id="accommodation" name="accommodation" required>
                         <option value="">Select type</option>
                         <option value="luxury">Luxury Resort</option>
                         <option value="eco">Eco-Lodge</option>
@@ -87,7 +92,7 @@
                 </div>
                 <button type="submit">Submit Booking</button>
             </form>
-            <div id="bookingConfirmation"></div>
+            <div id="bookingConfirmation" role="status" aria-live="polite" tabindex="-1"></div>
         </section>
     </main>
 

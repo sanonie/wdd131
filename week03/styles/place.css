@@ -1,0 +1,84 @@
+/* Week03 place page specific styles */
+.hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.hero-image {
+    grid-area: 1/1;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    filter: brightness(0.6);
+    border-radius: 6px;
+}
+
+.hero-text {
+    grid-area: 1/1;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text p {
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        height: 200px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.4rem;
+    }
+}
+
+.weather-section {
+    padding: 1rem;
+}
+
+.weather-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+.weather-item {
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.fact-display {
+    margin-top: 1rem;
+    background: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        height: 200px;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+}

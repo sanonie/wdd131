@@ -1,19 +1,19 @@
-// Accommodations JavaScript
+
 document.addEventListener('DOMContentLoaded', function () {
     const bookingForm = document.getElementById('bookingForm');
     const bookButtons = document.querySelectorAll('.book-btn');
     const confirmationDiv = document.getElementById('bookingConfirmation');
 
-    // Set current year and last modified
+
     setFooterInfo();
 
-    // Handle booking form submission
+
     bookingForm.addEventListener('submit', function (e) {
         e.preventDefault();
         handleBookingSubmission();
     });
 
-    // Handle quick book buttons
+
     bookButtons.forEach(button => {
         button.addEventListener('click', function () {
             const type = this.getAttribute('data-type');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Load any previous booking data
+
     loadPreviousBooking();
 });
 
@@ -39,9 +39,9 @@ function handleBookingSubmission() {
 }
 
 function quickBook(type) {
-    // Pre-fill the accommodation type
+
     document.getElementById('accommodation').value = type;
-    // Scroll to form
+
     document.querySelector('.booking-form').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -82,7 +82,7 @@ function loadPreviousBooking() {
     const bookings = getBookingsFromStorage();
     if (bookings.length > 0) {
         const lastBooking = bookings[bookings.length - 1];
-        // Pre-fill form with last booking data
+        /
         document.getElementById('name').value = lastBooking.name || '';
         document.getElementById('email').value = lastBooking.email || '';
     }
@@ -91,10 +91,12 @@ function loadPreviousBooking() {
 function showConfirmation(type, message) {
     const confirmationDiv = document.getElementById('bookingConfirmation');
     confirmationDiv.className = type;
-    confirmationDiv.textContent = message;
+    confirmationDiv.textContent = `${message}`;
     confirmationDiv.style.display = 'block';
 
-    // Hide after 5 seconds
+    confirmationDiv.focus();
+
+
     setTimeout(() => {
         confirmationDiv.style.display = 'none';
     }, 5000);

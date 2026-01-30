@@ -1,18 +1,18 @@
-// Contact JavaScript
+
 document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
-    // Set current year and last modified
+
     setFooterInfo();
 
-    // Handle form submission
+
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         handleFormSubmission();
     });
 
-    // Load saved form data if exists
+
     loadSavedFormData();
 });
 
@@ -59,7 +59,7 @@ function saveFormDataToStorage(formData) {
     messages.push(formData);
     localStorage.setItem('contactMessages', JSON.stringify(messages));
 
-    // Also save for newsletter if subscribed
+
     if (formData.newsletter) {
         const subscribers = getSubscribersFromStorage();
         const subscriber = {
@@ -86,7 +86,7 @@ function loadSavedFormData() {
     const messages = getMessagesFromStorage();
     if (messages.length > 0) {
         const lastMessage = messages[messages.length - 1];
-        // Pre-fill with last submitted data
+
         document.getElementById('firstName').value = lastMessage.firstName || '';
         document.getElementById('lastName').value = lastMessage.lastName || '';
         document.getElementById('email').value = lastMessage.email || '';
@@ -97,10 +97,11 @@ function loadSavedFormData() {
 function showMessage(type, message) {
     const formMessage = document.getElementById('formMessage');
     formMessage.className = type;
-    formMessage.textContent = message;
+    formMessage.textContent = `${message}`;
     formMessage.style.display = 'block';
+    formMessage.focus();
 
-    // Hide after 5 seconds
+
     setTimeout(() => {
         formMessage.style.display = 'none';
     }, 5000);

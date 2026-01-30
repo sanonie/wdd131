@@ -27,7 +27,7 @@
 
     <main>
         <section class="hero">
-            <img src="../images/hero.webp" alt="Contact Madagascar Tourism" loading="lazy">
+            <img src="../images/hero.webp" alt="Contact Madagascar Tourism" loading="lazy" decoding="async" width="1600" height="600">
             <h1>Contact Us</h1>
             <p>Have questions? We're here to help plan your Madagascar adventure.</p>
         </section>
@@ -61,24 +61,24 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name:</label>
-                            <input type="text" id="firstName" required>
+                            <input type="text" id="firstName" name="firstName" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name:</label>
-                            <input type="text" id="lastName" required>
+                            <input type="text" id="lastName" name="lastName" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone (optional):</label>
-                        <input type="tel" id="phone">
+                        <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject:</label>
-                        <select id="subject" required>
+                        <select id="subject" name="subject" required>
                             <option value="">Select a subject</option>
                             <option value="booking">Booking Inquiry</option>
                             <option value="activities">Activities Information</option>
@@ -89,16 +89,16 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message:</label>
-                        <textarea id="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="newsletter">
-                            <input type="checkbox" id="newsletter"> Subscribe to our newsletter
+                            <input type="checkbox" id="newsletter" name="newsletter"> Subscribe to our newsletter
                         </label>
                     </div>
                     <button type="submit">Send Message</button>
                 </form>
-                <div id="formMessage"></div>
+                <div id="formMessage" role="status" aria-live="polite" tabindex="-1"></div>
             </div>
         </section>
     </main>
