@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../week02/styles/temples-large.css">
-    <link rel="stylesheet" href="../week02/styles/temples.css">
-    <script src="../scripts/temples.js" defer></script>
+    <link rel="stylesheet" href="styles/temples-large.css">
+    <link rel="stylesheet" href="styles/temples.css">
+    <script src="js/filtered-temples.js" defer></script>
 </head>
 
 <body>
@@ -35,51 +35,16 @@
     <main>
         <h1>Temples</h1>
 
-        <div class="figures">
-            <figure>
-                <img src="image/ghanaaccra.jpg" alt="Temple 1">
-                <figcaption>Ghana Accra temple</figcaption>
-            </figure>
+        <nav class="temple-filters" aria-label="Temple filters">
+            <button data-filter="home">Home</button>
+            <button data-filter="old">Old (&lt; 1900)</button>
+            <button data-filter="new">New (&gt; 2000)</button>
+            <button data-filter="large">Large (&gt; 90,000 sqft)</button>
+            <button data-filter="small">Small (&lt; 10,000 sqft)</button>
+        </nav>
 
-            <figure>
-                <img src="image/kizz.jpg" alt="Temple 2">
-                <figcaption>Kizz temple</figcaption>
-            </figure>
+        <div id="temples-list" class="figures" aria-live="polite">
 
-            <figure>
-                <img src="image/Nauvoo.jpg" alt="Temple 3">
-                <figcaption>Nauvoo temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/Nigeriatemple.jpg" alt="Temple 4">
-                <figcaption>Nigeria temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/Oclahoma.jpg" alt="Temple 5">
-                <figcaption>Oklahoma temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/philipine.jpg" alt="Temple 6">
-                <figcaption>Philippine temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/saintgeorgeutah.jpg" alt="Temple 7">
-                <figcaption>Saint George Utah temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/saltlake.jpg" alt="Temple 8">
-                <figcaption>Salt Lake temple</figcaption>
-            </figure>
-
-            <figure>
-                <img src="image/southafrica.jpg" alt="Temple 9">
-                <figcaption>South Africa temple</figcaption>
-            </figure>
         </div>
     </main>
 
