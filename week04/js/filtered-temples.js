@@ -84,27 +84,28 @@
     }));
 
 
-    const images = [
-        'bernswitzerland.jpg',
-        'tokyojapan.jpeg',
-        'sidney.jpeg'
-    ];
+    // Map specific local images to temples by name and preload them using <link rel="preload"> tags
+    const localImageMap = {
+        sydney: 'week02/image/sydney.jpg',
+        bern: 'week02/image/bernswitzerland.jpg',
+        tokyo: 'week02/image/tokyojapan.jpeg'
+    };
 
+    // Assign local images where the temple name indicates a match
+    temples.forEach(t => {
+        const n = t.name.toLowerCase();
+        if (n.includes('sydney')) t.image = localImageMap.sydney;
+        if (n.includes('bern')) t.image = localImageMap.bern;
+        if (n.includes('tokyo')) t.image = localImageMap.tokyo;
+    });
 
-    for (let i = 0; i < images.length; i++) {
-        const idx = temples.length - images.length + i;
-        if (temples[idx]) {
-            temples[idx].image = `${origin}/week02/image/${images[i]}`;
-        }
-    }
-
-
-    images.forEach(file => {
-        const img = document.createElement('img');
-        img.src = `${origin}/week02/image/${file}`;
-        img.classList.add('img-fallback');
-        img.style.display = 'none';
-        document.body.appendChild(img);
+    // Preload the local images without adding visible nodes (uses head <link rel="preload">)
+    Object.values(localImageMap).forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
     });
 
     const container = document.getElementById('temples-list');
