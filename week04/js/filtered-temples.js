@@ -83,14 +83,14 @@
         image: t.imageUrl
     }));
 
-    // Use local images for the last three temples and preload them hidden to avoid layout changes
+
     const images = [
-        'sydney.jpg',
         'bernswitzerland.jpg',
-        'tokyojapan.jpeg'
+        'tokyojapan.jpeg',
+        'sidney.jpeg'
     ];
 
-    // Assign the local image paths to the last three temple objects (keeps original order)
+
     for (let i = 0; i < images.length; i++) {
         const idx = temples.length - images.length + i;
         if (temples[idx]) {
@@ -98,7 +98,7 @@
         }
     }
 
-    // Preload the local images (hidden) so they are cached and available when rendered
+
     images.forEach(file => {
         const img = document.createElement('img');
         img.src = `${origin}/week02/image/${file}`;
