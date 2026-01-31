@@ -2,111 +2,104 @@
 (function () {
     const origin = window.location.origin;
 
+    // Temple data
     const sourceTemples = [
         {
             templeName: "Aba Nigeria",
             location: "Aba, Nigeria",
-            dedicated: "2005, August, 7",
+            dedicated: "2005-08-07",
             area: 11500,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
         },
         {
             templeName: "Manti Utah",
             location: "Manti, Utah, United States",
-            dedicated: "1888, May, 21",
+            dedicated: "1888-05-21",
             area: 74792,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
         },
         {
             templeName: "Payson Utah",
             location: "Payson, Utah, United States",
-            dedicated: "2015, June, 7",
+            dedicated: "2015-06-07",
             area: 96630,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
         },
         {
             templeName: "Yigo Guam",
             location: "Yigo, Guam",
-            dedicated: "2020, May, 2",
+            dedicated: "2020-05-02",
             area: 6861,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
         },
         {
             templeName: "Washington D.C.",
             location: "Kensington, Maryland, United States",
-            dedicated: "1974, November, 19",
+            dedicated: "1974-11-19",
             area: 156558,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
         },
         {
             templeName: "Lima Perú",
             location: "Lima, Perú",
-            dedicated: "1986, January, 10",
+            dedicated: "1986-01-10",
             area: 9600,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
         },
         {
             templeName: "Mexico City Mexico",
             location: "Mexico City, Mexico",
-            dedicated: "1983, December, 2",
+            dedicated: "1983-12-02",
             area: 116642,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
         },
         {
-            templeName: "Bern Switzerland",
-            location: "Bern, Switzerland",
-            dedicated: "1955, October, 23",
-            area: 8900,
-            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bern-switzerland/400x250/bern_switzerland_temple.jpg"
-        },
-        {
             templeName: "Tokyo Japan",
             location: "Tokyo, Japan",
-            dedicated: "1988, October, 27",
+            dedicated: "1988-10-27",
             area: 21000,
-            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/400x250/tokyo_japan_temple.jpg"
+            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/800x500/tokyo_japan_temple-recommend-desk.jpeg"
+        },
+        {
+            templeName: "Bern Switzerland",
+            location: "Bern, Switzerland",
+            dedicated: "1955-09-11",
+            area: 8700,
+            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bern-switzerland/800x500/bern-switzerland-temple-lds-784288-wallpaper.jpg"
         },
         {
             templeName: "Sydney Australia",
             location: "Sydney, Australia",
-            dedicated: "1994, March, 9",
-            area: 102000,
-            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sydney-australia/400x250/sydney_australia_temple.jpg"
+            dedicated: "1984-09-15",
+            area: 107000,
+            imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sydney-australia/800x500/sydney-australia-temple-766362-wallpaper.jpg"
         }
     ];
 
-    const temples = sourceTemples.map(t => ({
-        name: t.templeName,
-        location: t.location,
-        dedicated: (new Date(t.dedicated)).toISOString().split('T')[0],
-        area: t.area,
-        image: t.imageUrl
-    }));
-
-
-    // Map specific local images to temples by name and preload them using <link rel="preload"> tags
-    const localImageMap = {
-        sydney: 'week02/image/sydney.jpg',
+    // Map to local fallback images
+    const localFallbacks = {
+        tokyo: 'week02/image/tokyojapan.jpeg',
         bern: 'week02/image/bernswitzerland.jpg',
-        tokyo: 'week02/image/tokyojapan.jpeg'
+        sydney: 'week02/image/sydney.jpg'
     };
 
-    // Assign local images where the temple name indicates a match
-    temples.forEach(t => {
-        const n = t.name.toLowerCase();
-        if (n.includes('sydney')) t.image = localImageMap.sydney;
-        if (n.includes('bern')) t.image = localImageMap.bern;
-        if (n.includes('tokyo')) t.image = localImageMap.tokyo;
-    });
-
-    // Preload the local images without adding visible nodes (uses head <link rel="preload">)
-    Object.values(localImageMap).forEach(src => {
+    // Preload local images
+    Object.values(localFallbacks).forEach(src => {
         const link = document.createElement('link');
         link.rel = 'preload';
         link.as = 'image';
         link.href = src;
         document.head.appendChild(link);
     });
+
+    // Format temples
+    const temples = sourceTemples.map(t => ({
+        name: t.templeName,
+        location: t.location,
+        dedicated: t.dedicated,
+        area: t.area,
+        image: t.imageUrl
+    }));
 
     const container = document.getElementById('temples-list');
     const filterNav = document.querySelector('.temple-filters');
@@ -116,44 +109,35 @@
         card.className = 'figure-card';
 
         const img = document.createElement('img');
-
-        img.alt = `${t.name}`;
+        img.alt = t.name;
         img.loading = 'lazy';
         img.decoding = 'async';
         img.width = 600;
         img.height = 400;
-
-        img.addEventListener('error', () => {
-
-            img.src = `${origin}/week02/image/sydney.jpg`;
-            img.classList.add('img-fallback');
-            img.alt = `${t.name} (image unavailable, using fallback)`;
-        });
         img.src = t.image;
+
+        // Fallback logic
+        img.addEventListener('error', () => {
+            const key = t.name.toLowerCase();
+            if (key.includes('tokyo')) img.src = localFallbacks.tokyo;
+            else if (key.includes('bern')) img.src = localFallbacks.bern;
+            else if (key.includes('sydney')) img.src = localFallbacks.sydney;
+            else img.src = `${origin}/week02/image/fallback.jpg`; // generic fallback
+            img.classList.add('img-fallback');
+            img.alt = `${t.name} (image unavailable)`;
+        });
 
         const meta = document.createElement('div');
         meta.className = 'meta';
-
-        const h3 = document.createElement('h3');
-        h3.textContent = t.name;
-
-        const loc = document.createElement('p');
-        loc.textContent = `Location: ${t.location}`;
-
-        const ded = document.createElement('p');
-        ded.textContent = `Dedicated: ${new Date(t.dedicated).toLocaleDateString()}`;
-
-        const area = document.createElement('p');
-        area.textContent = `Area: ${t.area.toLocaleString()} sqft`;
-
-        meta.appendChild(h3);
-        meta.appendChild(loc);
-        meta.appendChild(ded);
-        meta.appendChild(area);
+        meta.innerHTML = `
+            <h3>${t.name}</h3>
+            <p>Location: ${t.location}</p>
+            <p>Dedicated: ${new Date(t.dedicated).toLocaleDateString()}</p>
+            <p>Area: ${t.area.toLocaleString()} sqft</p>
+        `;
 
         card.appendChild(img);
         card.appendChild(meta);
-
         return card;
     }
 
@@ -169,8 +153,7 @@
     }
 
     function setActiveButton(type) {
-        const buttons = document.querySelectorAll('.temple-filters button[data-filter]');
-        buttons.forEach(btn => {
+        document.querySelectorAll('.temple-filters button[data-filter]').forEach(btn => {
             const isActive = btn.getAttribute('data-filter') === type;
             btn.classList.toggle('active', isActive);
             btn.setAttribute('aria-pressed', String(isActive));
@@ -195,49 +178,24 @@
             default:
                 result = temples.slice();
         }
-        saveFilter(type);
+        localStorage.setItem('lastTempleFilter', type);
         setActiveButton(type);
         renderList(result);
     }
 
-    function saveFilter(type) {
-        try { localStorage.setItem('lastTempleFilter', type); } catch (e) { /* ignore */ }
-    }
-
-    function loadLastFilter() {
-        try { return localStorage.getItem('lastTempleFilter'); } catch (e) { return null; }
-    }
-
-
     filterNav.addEventListener('click', e => {
         if (e.target && e.target.matches('button[data-filter]')) {
-            const filter = e.target.getAttribute('data-filter');
-            if (location.hash.substring(1) !== filter) {
-                location.hash = filter;
-            } else {
-                filterTemples(filter);
-            }
+            filterTemples(e.target.getAttribute('data-filter'));
         }
     });
 
+    window.addEventListener('DOMContentLoaded', () => {
+        const lastFilter = localStorage.getItem('lastTempleFilter') || 'home';
+        filterTemples(lastFilter);
 
-    window.addEventListener('hashchange', () => {
-        const hash = location.hash ? location.hash.substring(1) : 'home';
-        const allowed = ['home', 'old', 'new', 'large', 'small'];
-        filterTemples(allowed.includes(hash) ? hash : 'home');
-    });
-
-    function setFooterInfo() {
-        const currentYear = new Date().getFullYear();
-        const lastModified = document.lastModified;
-        if (document.getElementById('currentyear')) document.getElementById('currentyear').textContent = currentYear;
-        if (document.getElementById('lastModified')) document.getElementById('lastModified').textContent = `Last modified: ${lastModified}`;
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const hashFilter = location.hash ? location.hash.substring(1) : null;
-        const last = hashFilter || loadLastFilter() || 'home';
-        filterTemples(last);
-        setFooterInfo();
+        const currentYearElem = document.getElementById('currentyear');
+        const lastModifiedElem = document.getElementById('lastModified');
+        if (currentYearElem) currentYearElem.textContent = new Date().getFullYear();
+        if (lastModifiedElem) lastModifiedElem.textContent = `Last modified: ${document.lastModified}`;
     });
 })();
