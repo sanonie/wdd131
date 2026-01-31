@@ -83,6 +83,30 @@
         image: t.imageUrl
     }));
 
+    // Use local images for the last three temples and preload them hidden to avoid layout changes
+    const images = [
+        'sydney.jpg',
+        'bernswitzerland.jpg',
+        'tokyojapan.jpeg'
+    ];
+
+    // Assign the local image paths to the last three temple objects (keeps original order)
+    for (let i = 0; i < images.length; i++) {
+        const idx = temples.length - images.length + i;
+        if (temples[idx]) {
+            temples[idx].image = `${origin}/week02/image/${images[i]}`;
+        }
+    }
+
+    // Preload the local images (hidden) so they are cached and available when rendered
+    images.forEach(file => {
+        const img = document.createElement('img');
+        img.src = `${origin}/week02/image/${file}`;
+        img.classList.add('img-fallback');
+        img.style.display = 'none';
+        document.body.appendChild(img);
+    });
+
     const container = document.getElementById('temples-list');
     const filterNav = document.querySelector('.temple-filters');
 
@@ -91,16 +115,16 @@
         card.className = 'figure-card';
 
         const img = document.createElement('img');
-        // set up a robust image with lazy loading and a fallback handler
+
         img.alt = `${t.name}`;
         img.loading = 'lazy';
         img.decoding = 'async';
         img.width = 600;
         img.height = 400;
-        // fallback to a local temple image if remote image fails to load
+
         img.addEventListener('error', () => {
-            // Use an existing local temple image as fallback
-            img.src = `${origin}/week02/image/ghanaaccra.jpg`;
+
+            img.src = `${origin}/week02/image/sydney.jpg`;
             img.classList.add('img-fallback');
             img.alt = `${t.name} (image unavailable, using fallback)`;
         });
