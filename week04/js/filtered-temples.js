@@ -2,7 +2,7 @@
 (function () {
     const origin = window.location.origin;
 
-    // Temple data
+
     const sourceTemples = [
         {
             templeName: "Aba Nigeria",
@@ -83,7 +83,7 @@
         sydney: 'week02/image/sydney.jpg'
     };
 
-    // Preload local images
+
     Object.values(localFallbacks).forEach(src => {
         const link = document.createElement('link');
         link.rel = 'preload';
@@ -92,7 +92,7 @@
         document.head.appendChild(link);
     });
 
-    // Format temples
+
     const temples = sourceTemples.map(t => ({
         name: t.templeName,
         location: t.location,
