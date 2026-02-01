@@ -14,10 +14,48 @@ body {
 
 header {
     display: flex;
-    color: white;
-    padding: 1rem;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    background-color: #06283D;
+    color: white;
+    padding: 1rem;
+}
+
+header .site-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    /* keeps items on one line on small screens */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: rgba(255, 255, 255, 0.06);
 }
 
 header h1 {
