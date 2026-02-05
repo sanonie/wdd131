@@ -1,0 +1,41 @@
+/* Typography & Colors */
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: #F4F7F5;
+    color: #2E3A23;
+    margin: 40px;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Montserrat", sans-serif;
+    color: #1B5E20;
+}
+
+.color-box {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #333;
+    margin: 10px 0;
+}
+
+.forest {
+    background-color: #1B5E20;
+}
+
+.accent {
+    background-color: #4CAF50;
+}
+
+.sage {
+    background-color: #F4F7F5;
+}
+
+.wireframe {
+    border: 2px dashed #4CAF50;
+    padding: 20px;
+    margin: 20px 0;
+    background: #FFFFFF;
+}
