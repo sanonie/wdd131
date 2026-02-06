@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Confirmation</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script defer>
+
+        let count = Number(localStorage.getItem("reviewCount")) || 0;
+        count++;
+        localStorage.setItem("reviewCount", count);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Review Submitted</h1>
+    </header>
+
+    <main>
+        <h2>Thank you for your review!</h2>
+
+        <p><strong>Product:</strong> <span id="product"></span></p>
+        <p><strong>Rating:</strong> <span id="rating"></span></p>
+        <p><strong>Installation Date:</strong> <span id="install-date"></span></p>
+        <p><strong>Useful Features:</strong> <span id="features"></span></p>
+        <p><strong>Written Review:</strong> <span id="review"></span></p>
+        <p><strong>Your Name:</strong> <span id="username"></span></p>
+
+        <p><strong>Total Reviews Submitted:</strong>
+            <span id="count"></span>
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 | WDD131 | Your Name</p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById("product").textContent = params.get("product");
+        document.getElementById("rating").textContent = params.get("rating");
+        document.getElementById("install-date").textContent = params.get("install-date");
+        document.getElementById("features").textContent = params.getAll("features").join(", ");
+        document.getElementById("review").textContent = params.get("review");
+        document.getElementById("username").textContent = params.get("username");
+        document.getElementById("count").textContent = localStorage.getItem("reviewCount");
+    </script>
+
+</body>
+
+</html>
