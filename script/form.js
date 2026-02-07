@@ -14,3 +14,4 @@ products.forEach(product => {
     option.textContent = product.name;
     select.appendChild(option);
 });
+/* Media Query Requirement */

@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Submit a product review including rating, installation date, features, and written feedback.">
+    <meta name="author" content="Sanon Bakubamutwe">
     <title>Product Review Form</title>
+
     <link rel="stylesheet" href="styles/form.css">
     <script src="scripts/form.js" defer></script>
+    <script src="scripts/lastmodified.js" defer></script>
 </head>
 
 <body>
@@ -17,73 +22,80 @@
     <main>
         <form method="get" action="review.html">
 
+            <!-- PRODUCT NAME -->
             <label for="product">Product Name</label>
             <select id="product" name="product" required>
                 <option value="" disabled selected>Select a Product ...</option>
             </select>
 
-
+            <!-- OVERALL RATING -->
             <fieldset>
                 <legend>Overall Rating</legend>
-                <div class="rating-group">
-                    <label><input type="radio" name="rating" value="1" required> 1</label>
-                    <label><input type="radio" name="rating" value="2"> 2</label>
-                    <label><input type="radio" name="rating" value="3"> 3</label>
-                    <label><input type="radio" name="rating" value="4"> 4</label>
-                    <label><input type="radio" name="rating" value="5"> 5</label>
-                </div>
+
+                <label for="rate1">
+                    <input type="radio" id="rate1" name="rating" value="1" required> 1
+                </label>
+
+                <label for="rate2">
+                    <input type="radio" id="rate2" name="rating" value="2" required> 2
+                </label>
+
+                <label for="rate3">
+                    <input type="radio" id="rate3" name="rating" value="3" required> 3
+                </label>
+
+                <label for="rate4">
+                    <input type="radio" id="rate4" name="rating" value="4" required> 4
+                </label>
+
+                <label for="rate5">
+                    <input type="radio" id="rate5" name="rating" value="5" required> 5
+                </label>
             </fieldset>
 
-
+            <!-- INSTALLATION DATE -->
             <label for="install-date">Date of Installation</label>
             <input type="date" id="install-date" name="install-date" required>
 
-
+            <!-- USEFUL FEATURES -->
             <fieldset>
-                <legend>which Features did you find useful in the product? (check all that apply)</legend>
+                <legend>Useful Features (check all that apply)</legend>
 
-                <label><input type="checkbox" id="feature1" name="features" value="durability"> Durability</label>
-                <label><input type="checkbox" id="feature2" name="features" value="design"> Design</label>
-                <label><input type="checkbox" id="feature3" name="features" value="performance"> Performance</label>
-                <label><input type="checkbox" id="feature4" name="features" value="value"> Value</label>
+                <label for="feature1">
+                    <input type="checkbox" id="feature1" name="features" value="durability"> Durability
+                </label>
+
+                <label for="feature2">
+                    <input type="checkbox" id="feature2" name="features" value="design"> Design
+                </label>
+
+                <label for="feature3">
+                    <input type="checkbox" id="feature3" name="features" value="performance"> Performance
+                </label>
+
+                <label for="feature4">
+                    <input type="checkbox" id="feature4" name="features" value="value"> Value
+                </label>
             </fieldset>
 
-
-            <label for="review">Written Review (optional)</label>
+            <!-- WRITTEN REVIEW -->
+            <label for="review">Written Review</label>
             <textarea id="review" name="review" rows="5" placeholder="Write your review here..."></textarea>
 
-
+            <!-- USER NAME -->
             <label for="username">Your Name (optional)</label>
             <input type="text" id="username" name="username">
 
-
+            <!-- SUBMIT BUTTON -->
             <input type="submit" value="Submit Review">
 
         </form>
     </main>
 
     <footer>
-        <p>© 2026 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
-        <p>Last modified: <span id="lastModified"></span></p>
+         <p>© 2026 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
+        <p>Last modified: <span id="lastModified">
     </footer>
-    <script>
-        function formatDate(date) {
-            const month = String(date.getMonth() + 1).padStart(2, "0");
-            const day = String(date.getDate()).padStart(2, "0");
-            const year = date.getFullYear();
-
-            const hours = String(date.getHours()).padStart(2, "0");
-            const minutes = String(date.getMinutes()).padStart(2, "0");
-            const seconds = String(date.getSeconds()).padStart(2, "0");
-
-            return `${month}/${day}/${year} ${hours}:${minutes}:${seconds}`;
-        }
-
-        document.getElementById("lastModified").textContent = formatDate(new Date());
-    </script>
-
-
-
 
 </body>
 
