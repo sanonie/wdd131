@@ -1,8 +1,6 @@
 (function () {
 
-    /* =========================
-       TEMPLE DATA (10 TOTAL)
-    ========================== */
+    
     const temples = [
         {
             templeName: "Aba Nigeria",
@@ -61,13 +59,13 @@
                 "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
         },
 
-        /* ===== NEW TEMPLES ADDED ===== */
+
 
         {
             templeName: "Kinshasa DR Congo",
             location: "Kinshasa, Democratic Republic of the Congo",
             dedicated: "2019, April, 14",
-            area: 12000,
+            area: 12030,
             imageUrl:
                 "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/kinshasa-democratic-republic-of-congo/800x500/02-Kinshasa-DRCongo-Temple-2208931.jpg"
         },
@@ -89,15 +87,11 @@
         }
     ];
 
-    /* =========================
-       DOM REFERENCES
-    ========================== */
+
     const container = document.getElementById("temples-list");
     const filterButtons = document.querySelectorAll(".temple-filters button");
 
-    /* =========================
-       HELPER FUNCTIONS
-    ========================== */
+    
     function getYear(dedicated) {
         return parseInt(dedicated.split(",")[0]);
     }
@@ -128,9 +122,7 @@
         });
     }
 
-    /* =========================
-       FILTERING
-    ========================== */
+    
     function filterTemples(filter) {
         let result = temples;
 
@@ -161,18 +153,14 @@
         displayTemples(result);
     }
 
-    /* =========================
-       EVENTS
-    ========================== */
+    
     filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
             filterTemples(btn.dataset.filter);
         });
     });
 
-    /* =========================
-       INITIAL LOAD
-    ========================== */
+    
     const savedFilter = localStorage.getItem("lastTempleFilter") || "home";
     filterTemples(savedFilter);
 

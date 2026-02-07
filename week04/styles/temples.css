@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
+
 header {
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ nav a:focus {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* MAIN */
+
 main {
     max-width: 1100px;
     margin: 0 auto;
@@ -60,7 +60,7 @@ main h1 {
     color: var(--temple-primary);
 }
 
-/* FILTERS */
+
 .temple-filters {
     display: flex;
     justify-content: center;
@@ -85,14 +85,14 @@ main h1 {
     color: white;
 }
 
-/* GRID */
+
 .figures {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
 
-/* CARD */
+
 .figure-card {
     background-color: white;
     border-radius: 8px;
@@ -115,7 +115,7 @@ main h1 {
     padding: 0.75rem;
 }
 
-/* FOOTER */
+
 footer {
     background-color: var(--temple-primary);
     color: white;
