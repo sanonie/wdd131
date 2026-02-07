@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temple Album — Filtered Temples</title>
+
     <meta name="description"
-        content="Temple Album. Filtered list of notable temples with filters for Old, New, Large, and Small. View photos, locations and dates.">
+        content="Temple Album. Filtered list of notable temples with filters for Old, New, Large, and Small.">
     <meta name="author" content="Sanon Bakubamutwe">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/temples-large.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+
+    <!-- JS -->
     <script src="js/filtered-temples.js" defer></script>
 </head>
 
@@ -24,21 +29,15 @@
     <header>
         <div class="site-title">Temple Album</div>
 
-        <button id="hamburger">☰</button>
+        <button id="hamburger" aria-label="Toggle navigation">☰</button>
+
         <nav>
             <ul>
                 <li><a href="/index.html">About Me</a></li>
                 <li><a href="/week02/temples.html">Temples - Week02</a></li>
                 <li><a href="/week03/place.html">Places - Week03</a></li>
-                <li><a href="/week04/filtered-temples.html">Filtered Temples - Week04</a></li>
-                <li><a href="/week06/index.html">Final Project - Week06</a></li>
-
-
-                <li class="sr-only"><a href="#filter-home">Home</a></li>
-                <li class="sr-only"><a href="#filter-old">Old</a></li>
-                <li class="sr-only"><a href="#filter-new">New</a></li>
-                <li class="sr-only"><a href="#filter-large">Large</a></li>
-                <li class="sr-only"><a href="#filter-small">Small</a></li>
+                <li><a href="/week04/filtered-temples.html" aria-current="page">Filtered Temples</a></li>
+                <li><a href="/week06/index.html">Final Project</a></li>
             </ul>
         </nav>
     </header>
@@ -46,23 +45,21 @@
     <main>
         <h1>Temples</h1>
 
+        <!-- FILTER BUTTONS -->
         <div class="temple-filters" role="toolbar" aria-label="Temple filters">
-            <button data-filter="home">Home</button>
+            <button data-filter="home" aria-pressed="true">Home</button>
             <button data-filter="old">Old (&lt; 1900)</button>
             <button data-filter="new">New (&gt; 2000)</button>
             <button data-filter="large">Large (&gt; 90,000 sqft)</button>
             <button data-filter="small">Small (&lt; 10,000 sqft)</button>
         </div>
 
-        <div id="temples-list" class="figures" aria-live="polite">
-
-        </div>
+        <!-- TEMPLE CARDS -->
+        <div id="temples-list" class="figures" aria-live="polite"></div>
     </main>
 
     <footer>
-        <p>
-            &copy; <span id="currentyear"></span> 🌸 Sanon Bakubamutwe 🌸 | Uganda
-        </p>
+        <p>&copy; <span id="currentyear"></span> 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
         <p id="lastModified"></p>
     </footer>
 
