@@ -82,7 +82,7 @@ function loadPreviousBooking() {
     const bookings = getBookingsFromStorage();
     if (bookings.length > 0) {
         const lastBooking = bookings[bookings.length - 1];
-        /
+
         document.getElementById('name').value = lastBooking.name || '';
         document.getElementById('email').value = lastBooking.email || '';
     }

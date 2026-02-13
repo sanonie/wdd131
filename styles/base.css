@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    margin: 5px;
+    padding: 5x;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    width: 100%;
+}
+
+.header-title {
+    background-color: #007A3D;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2b2b2b;
+    padding: 0.8rem 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+main h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #007A3D;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.card h2 {
+    background-color: #007A3D;
+    color: #fff;
+    padding: 0.6rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.about-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.about-flex p {
+    max-width: 60%;
+}
+
+.about-flex img {
+    max-width: 35%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.location-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.location-flex img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.location-flex p {
+    max-width: 55%;
+}
+
+@media (max-width: 768px) {
+    .location-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .location-flex img {
+        max-width: 80%;
+        margin-top: 0.75rem;
+    }
+
+    .location-flex p {
+        max-width: 100%;
+    }
+}
+
+/* Utility: visually hide content but keep accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+img {
+    border-radius: 6px;
+    max-width: 100%;
+    height: auto;
+}
+
+.underline {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background-color: #007A3D;
+}
+
+.highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.highlights li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.highlights li::before {
+    content: "✓";
+    color: #007A3D;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.resources {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.resources li {
+    margin-bottom: 0.5rem;
+}
+
+.resources a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.resources a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #007A3D;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #FC3D21;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#lastModified,
+#last-modified {
+    color: #f4c430;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        top: 75%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-flex p {
+        max-width: 100%;
+    }
+
+    .about-flex img {
+        max-width: 80%;
+        margin-top: 1rem;
+    }
+
+    .location-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-flex p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        display: none;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
+}
+
+:root {
+    --primary-color: #007A3D;
+    --secondary-color: #FC3D21;
+    --accent-color: #FFFFFF;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+/* Theme variables set above. Global reset and core layout is defined near the top of this file to avoid duplication */
+
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Main Layout */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Weather Section */
+.weather-section {
+    background-color: var(--accent-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.weather-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Desktop icon after heading */
+.weather-section h2::after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background: url("../images/weather-icon.webp") no-repeat center / contain;
+}
+
+/* Weather Info Layout */
+.weather-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+.weather-item {
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* Mobile Weather Icon */
+.weather-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0.5rem;
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .weather-section h2::after {
+        display: block;
+        /* Keep the icon visible on mobile */
+    }
+
+    .weather-icon {
+        display: block;
+    }
+
+    .weather-section h2::before {
+        display: none;
+        /* Remove the wind icon on mobile */
+    }
+
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+}
+
+/* Navigation List */
+.navigation {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Nav Links */
+.navigation a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover & Active */
+.navigation a:hover,
+.navigation a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+    .navigation {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+    header {
+        padding: 1rem;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .navigation a {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem;
+    }
+}
+
+/* Fact Display */
+.fact-display {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.fact-display h3 {
+    color: #007A3D;
+    margin-bottom: 0.5rem;
+}
+
+#refresh-fact {
+    background: #FC3D21;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+#refresh-fact:hover {
+    background: #e63946;
+}
