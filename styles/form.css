@@ -1,3 +1,27 @@
+/* Header and title styling */
+header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0;
+}
+
+header .product-word {
+    color: white;
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 0.25rem;
+}
+
 /* Root level variables for consistent theming */
 :root {
     --primary-color: #1e5a96;
@@ -30,7 +54,7 @@
 .form-container {
     max-width: 800px;
     margin: 0 auto;
-    background: grey;
+    background: #e8f0f8;
     padding: var(--spacing-xl);
     border-radius: 0;
     box-shadow: none;
@@ -73,19 +97,53 @@ form {
     font-weight: 600;
 }
 
+/* Required field indicator */
+.required-indicator {
+    color: var(--required-color);
+    font-weight: bold;
+    margin-left: 0.25rem;
+    font-size: 1.1em;
+    aria-label: "required";
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Form hint text */
+.form-hint {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--text-gray);
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+}
+
 /* Fieldset styling */
 fieldset {
     border: none;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg);
     border-radius: 6px;
-    background: transparent;
+    background: #e8f0f8;
     margin: 0;
     margin-bottom: var(--spacing-lg);
 }
 
 /* Product Information section - first fieldset */
 fieldset:first-of-type {
-    margin-bottom: 3rem;
+    background: #e8f0f8;
+    padding: var(--spacing-lg);
+    margin-bottom: 2rem;
+    border-radius: 4px;
 }
 
 fieldset:last-of-type {
@@ -104,11 +162,11 @@ legend {
 /* Label styling */
 label {
     font-size: var(--font-size-base);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-dark);
     margin-bottom: var(--spacing-xs);
     display: block;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* Required field indicator */
@@ -117,6 +175,7 @@ label {
     font-weight: bold;
     margin-left: 0.25rem;
     font-size: 1.2em;
+}
 }
 
 /* Input fields consistent styling */

@@ -7,6 +7,7 @@
     <meta name="description"
         content="Submit a product review including rating, installation date, features, and written feedback.">
     <meta name="author" content="Sanon Bakubamutwe">
+    <meta name="theme-color" content="#1e5a96">
     <title>Product Review Form</title>
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/form.css">
@@ -14,29 +15,35 @@
 
 <body>
     <header>
-        <h1>Product Review Form</h1>
+        <h1><span class="product-word">Product</span> Review</h1>
     </header>
 
     <main>
         <div class="form-container">
-            <form id="reviewForm" method="get" action="review.html">
+            <form id="reviewForm" method="get" action="review.html" novalidate>
                 <fieldset>
+                    <legend class="sr-only">Product Information</legend>
 
                     <!-- Product Name Select -->
                     <div class="form-group">
-                        <label for="product">Product Name</label>
-                        <select id="product" name="product" required>
+                        <label for="product">Product Name <span class="required-indicator"
+                                aria-label="required">*</span></label>
+                        <select id="product" name="product" required aria-required="true"
+                            aria-describedby="product-help">
                             <option value="" disabled selected>Select a Product ...</option>
                         </select>
+                        <span id="product-help" class="sr-only">This field is required</span>
                     </div>
 
                     <!-- Overall Rating -->
                     <div class="form-group">
                         <fieldset class="rating-group">
-                            <legend>Overall Rating</legend>
-                            <div class="rating-options">
+                            <legend>Overall Rating <span class="required-indicator" aria-label="required">*</span>
+                            </legend>
+                            <div class="rating-options" role="group" aria-labelledby="rating-legend">
                                 <div class="rating-item">
-                                    <input type="radio" id="rating-1" name="rating" value="1" required>
+                                    <input type="radio" id="rating-1" name="rating" value="1" required
+                                        aria-required="true">
                                     <label for="rating-1">1</label>
                                 </div>
                                 <div class="rating-item">
@@ -61,8 +68,11 @@
 
                     <!-- Date of Installation -->
                     <div class="form-group">
-                        <label for="install-date">Date of Installation</label>
-                        <input type="date" id="install-date" name="install-date" required>
+                        <label for="install-date">Date of Installation <span class="required-indicator"
+                                aria-label="required">*</span></label>
+                        <input type="date" id="install-date" name="install-date" required aria-required="true"
+                            aria-describedby="date-help">
+                        <span id="date-help" class="sr-only">This field is required</span>
                     </div>
                 </fieldset>
 
@@ -73,7 +83,8 @@
                     <div class="form-group">
                         <p class="field-question">Which features did you find useful in the product?</p>
                         <p class="field-instruction">(check all that apply)</p>
-                        <fieldset class="checkbox-group">
+                        <div class="checkbox-group" role="group" aria-labelledby="features-label">
+                            <div id="features-label" class="sr-only">Useful Features</div>
                             <div class="checkbox-options">
                                 <div class="checkbox-item">
                                     <input type="checkbox" id="feature1" name="features" value="Ease of Use">
@@ -92,36 +103,38 @@
                                     <label for="feature4">Design</label>
                                 </div>
                             </div>
-                        </fieldset>
+                        </div>
                     </div>
 
                     <!-- Written Review -->
                     <div class="form-group">
                         <label for="review">Written Review <span class="optional-text">(optional)</span></label>
-                        <textarea id="review" name="review" rows="6"></textarea>
+                        <textarea id="review" name="review" rows="6" aria-describedby="review-help"></textarea>
+                        <span id="review-help" class="form-hint">Share your thoughts about the product (optional)</span>
                     </div>
 
                     <!-- User Name -->
                     <div class="form-group">
                         <label for="username">User Name <span class="optional-text">(optional)</span></label>
-                        <input type="text" id="username" name="username">
+                        <input type="text" id="username" name="username" aria-describedby="username-help">
+                        <span id="username-help" class="form-hint">Enter your name (optional)</span>
                     </div>
                 </fieldset>
-
 
                 <div class="form-actions">
                     <button type="submit" class="btn-submit">Submit Review</button>
                 </div>
             </form>
         </div>
+    </main>
 
-        <footer>
-            <p>&copy; <span id="currentyear"></span> 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
-            <p id="lastModified"></p>
-        </footer>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
+        <p id="lastModified"></p>
+    </footer>
 
-        <script src="scripts/getdates.js" defer></script>
-        <script src="script/form.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+    <script src="script/form.js" defer></script>
 </body>
 
 </html>
