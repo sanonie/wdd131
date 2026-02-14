@@ -47,7 +47,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* Hero Section */
+
 .hero {
     position: relative;
     text-align: center;
@@ -160,7 +160,7 @@ main h1 {
     }
 }
 
-/* Utility: visually hide content but keep accessible to screen readers */
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -256,7 +256,7 @@ footer a:hover {
     font-weight: 600;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2rem;
@@ -339,10 +339,10 @@ footer a:hover {
     --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
-/* Theme variables set above. Global reset and core layout is defined near the top of this file to avoid duplication */
 
 
-/* Hero Image */
+
+
 .hero-image {
     width: 100%;
     max-height: 400px;
@@ -350,14 +350,14 @@ footer a:hover {
     border-radius: 6px;
 }
 
-/* Main Layout */
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem;
 }
 
-/* Weather Section */
+
 .weather-section {
     background-color: var(--accent-color);
     padding: 1.5rem;
@@ -373,7 +373,7 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Desktop icon after heading */
+
 .weather-section h2::after {
     content: "";
     width: 32px;
@@ -381,7 +381,7 @@ main {
     background: url("../images/weather-icon.webp") no-repeat center / contain;
 }
 
-/* Weather Info Layout */
+
 .weather-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -395,7 +395,7 @@ main {
     background-color: #fafafa;
 }
 
-/* Mobile Weather Icon */
+
 .weather-icon {
     width: 48px;
     height: 48px;
@@ -403,7 +403,7 @@ main {
     display: none;
 }
 
-/* Footer */
+
 footer {
     background-color: var(--primary-color);
     color: var(--accent-color);
@@ -412,11 +412,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .weather-section h2::after {
         display: block;
-        /* Keep the icon visible on mobile */
+
     }
 
     .weather-icon {
@@ -425,18 +425,18 @@ footer {
 
     .weather-section h2::before {
         display: none;
-        /* Remove the wind icon on mobile */
+
     }
 
 }
 
-/* Header */
+
 header {
     background-color: var(--primary-color);
     padding: 1rem 2rem;
 }
 
-/* Navigation List */
+
 .navigation {
     list-style: none;
     display: flex;
@@ -445,7 +445,7 @@ header {
     gap: 2rem;
 }
 
-/* Nav Links */
+
 .navigation a {
     color: var(--accent-color);
     text-decoration: none;
@@ -456,14 +456,14 @@ header {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover & Active */
+
 .navigation a:hover,
 .navigation a:focus {
     background-color: rgba(255, 255, 255, 0.15);
     color: #fff;
 }
 
-/* ---------- Tablet ---------- */
+
 @media (max-width: 768px) {
     .navigation {
         gap: 1.25rem;
@@ -471,7 +471,7 @@ header {
     }
 }
 
-/* ---------- Mobile ---------- */
+
 @media (max-width: 480px) {
     header {
         padding: 1rem;
@@ -489,7 +489,7 @@ header {
     }
 }
 
-/* Fact Display */
+
 .fact-display {
     background: #f9f9f9;
     padding: 1.5rem;

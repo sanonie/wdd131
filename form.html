@@ -8,95 +8,120 @@
         content="Submit a product review including rating, installation date, features, and written feedback.">
     <meta name="author" content="Sanon Bakubamutwe">
     <title>Product Review Form</title>
-
+    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/form.css">
-    <script src="scripts/form.js" defer></script>
-    <script src="scripts/lastmodified.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>Product Review</h1>
+        <h1>Product Review Form</h1>
     </header>
 
     <main>
-        <form method="get" action="review.html">
+        <div class="form-container">
+            <form id="reviewForm" method="get" action="review.html">
+                <fieldset>
 
-            <!-- PRODUCT NAME -->
-            <label for="product">Product Name</label>
-            <select id="product" name="product" required>
-                <option value="" disabled selected>Select a Product ...</option>
-            </select>
+                    <!-- Product Name Select -->
+                    <div class="form-group">
+                        <label for="product">Product Name</label>
+                        <select id="product" name="product" required>
+                            <option value="" disabled selected>Select a Product ...</option>
+                        </select>
+                    </div>
 
-            <!-- OVERALL RATING -->
-            <fieldset>
-                <legend>Overall Rating</legend>
+                    <!-- Overall Rating -->
+                    <div class="form-group">
+                        <fieldset class="rating-group">
+                            <legend>Overall Rating</legend>
+                            <div class="rating-options">
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-1" name="rating" value="1" required>
+                                    <label for="rating-1">1</label>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-2" name="rating" value="2">
+                                    <label for="rating-2">2</label>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-3" name="rating" value="3">
+                                    <label for="rating-3">3</label>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-4" name="rating" value="4">
+                                    <label for="rating-4">4</label>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-5" name="rating" value="5">
+                                    <label for="rating-5">5</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
 
-                <label for="rate1">
-                    <input type="radio" id="rate1" name="rating" value="1" required> 1
-                </label>
+                    <!-- Date of Installation -->
+                    <div class="form-group">
+                        <label for="install-date">Date of Installation</label>
+                        <input type="date" id="install-date" name="install-date" required>
+                    </div>
+                </fieldset>
 
-                <label for="rate2">
-                    <input type="radio" id="rate2" name="rating" value="2" required> 2
-                </label>
+                <fieldset>
+                    <legend>Your Feedback</legend>
 
-                <label for="rate3">
-                    <input type="radio" id="rate3" name="rating" value="3" required> 3
-                </label>
+                    <!-- Useful Features -->
+                    <div class="form-group">
+                        <p class="field-question">Which features did you find useful in the product?</p>
+                        <p class="field-instruction">(check all that apply)</p>
+                        <fieldset class="checkbox-group">
+                            <div class="checkbox-options">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="feature1" name="features" value="Ease of Use">
+                                    <label for="feature1">Ease of Use</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="feature2" name="features" value="Performance">
+                                    <label for="feature2">Performance</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="feature3" name="features" value="Durability">
+                                    <label for="feature3">Durability</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="feature4" name="features" value="Design">
+                                    <label for="feature4">Design</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
 
-                <label for="rate4">
-                    <input type="radio" id="rate4" name="rating" value="4" required> 4
-                </label>
+                    <!-- Written Review -->
+                    <div class="form-group">
+                        <label for="review">Written Review <span class="optional-text">(optional)</span></label>
+                        <textarea id="review" name="review" rows="6"></textarea>
+                    </div>
 
-                <label for="rate5">
-                    <input type="radio" id="rate5" name="rating" value="5" required> 5
-                </label>
-            </fieldset>
+                    <!-- User Name -->
+                    <div class="form-group">
+                        <label for="username">User Name <span class="optional-text">(optional)</span></label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                </fieldset>
 
-            <!-- INSTALLATION DATE -->
-            <label for="install-date">Date of Installation</label>
-            <input type="date" id="install-date" name="install-date" required>
 
-            <!-- USEFUL FEATURES -->
-            <fieldset>
-                <legend>Useful Features (check all that apply)</legend>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Submit Review</button>
+                </div>
+            </form>
+        </div>
 
-                <label for="feature1">
-                    <input type="checkbox" id="feature1" name="features" value="durability"> Durability
-                </label>
+        <footer>
+            <p>&copy; <span id="currentyear"></span> 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
+            <p id="lastModified"></p>
+        </footer>
 
-                <label for="feature2">
-                    <input type="checkbox" id="feature2" name="features" value="design"> Design
-                </label>
-
-                <label for="feature3">
-                    <input type="checkbox" id="feature3" name="features" value="performance"> Performance
-                </label>
-
-                <label for="feature4">
-                    <input type="checkbox" id="feature4" name="features" value="value"> Value
-                </label>
-            </fieldset>
-
-            <!-- WRITTEN REVIEW -->
-            <label for="review">Written Review</label>
-            <textarea id="review" name="review" rows="5" placeholder="Write your review here..."></textarea>
-
-            <!-- USER NAME -->
-            <label for="username">Your Name (optional)</label>
-            <input type="text" id="username" name="username">
-
-            <!-- SUBMIT BUTTON -->
-            <input type="submit" value="Submit Review">
-
-        </form>
-    </main>
-
-    <footer>
-         <p>© 2026 🌸 Sanon Bakubamutwe 🌸 | Uganda</p>
-        <p>Last modified: <span id="lastModified">
-    </footer>
-
+        <script src="scripts/getdates.js" defer></script>
+        <script src="script/form.js" defer></script>
 </body>
 
 </html>

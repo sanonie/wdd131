@@ -1,4 +1,3 @@
-/* Week06 Activities Styles - minimal, non-duplicative, responsive */
 .activities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

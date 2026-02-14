@@ -4,52 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review submission confirmation page">
+    <meta name="author" content="Sanon Bakubamutwe">
     <title>Review Confirmation</title>
+    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/form.css">
-    <script defer>
-
-        let count = Number(localStorage.getItem("reviewCount")) || 0;
-        count++;
-        localStorage.setItem("reviewCount", count);
-    </script>
 </head>
 
 <body>
     <header>
-        <h1>Review Submitted</h1>
+        <h1>Review Submitted Successfully</h1>
     </header>
 
     <main>
-        <h2>Thank you for your review!</h2>
+        <section class="confirmation-section">
+            <h2>Thank you for your review!</h2>
 
-        <p><strong>Product:</strong> <span id="product"></span></p>
-        <p><strong>Rating:</strong> <span id="rating"></span></p>
-        <p><strong>Installation Date:</strong> <span id="install-date"></span></p>
-        <p><strong>Useful Features:</strong> <span id="features"></span></p>
-        <p><strong>Written Review:</strong> <span id="review"></span></p>
-        <p><strong>Your Name:</strong> <span id="username"></span></p>
+            <div class="review-details">
+                <h3>Review Information</h3>
+                <div class="detail-item">
+                    <strong>Product:</strong> <span id="product">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Rating:</strong> <span id="rating">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Installation Date:</strong> <span id="install-date">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Useful Features:</strong> <span id="features">None selected</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Written Review:</strong> <span id="review">No review provided</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Your Name:</strong> <span id="username">Anonymous</span>
+                </div>
+            </div>
 
-        <p><strong>Total Reviews Submitted:</strong>
-            <span id="count"></span>
-        </p>
+            <div class="stats-section">
+                <h3>Review Statistics</h3>
+                <p><strong>Total Reviews Submitted:</strong> <span id="count" class="count-badge">0</span></p>
+                <p class="feedback-message">Your feedback helps us improve our products!</p>
+            </div>
+
+            <div class="action-links">
+                <a href="form.html" class="btn-link">Submit Another Review</a>
+                <a href="index.html" class="btn-link">Back to Home</a>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 | WDD131 | Your Name</p>
+        <p>&copy; <span id="currentyear"></span> Product Reviews</p>
+        <p id="lastModified"></p>
     </footer>
 
+    <script src="scripts/getdates.js" defer></script>
     <script>
-        const params = new URLSearchParams(window.location.search);
+        /**
+         * Review Page - localStorage tracking and URL parameter display
+         */
 
-        document.getElementById("product").textContent = params.get("product");
-        document.getElementById("rating").textContent = params.get("rating");
-        document.getElementById("install-date").textContent = params.get("install-date");
-        document.getElementById("features").textContent = params.getAll("features").join(", ");
-        document.getElementById("review").textContent = params.get("review");
-        document.getElementById("username").textContent = params.get("username");
-        document.getElementById("count").textContent = localStorage.getItem("reviewCount");
+        // Initialize review counter on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get and increment review count from localStorage
+            let reviewCount = Number(localStorage.getItem("reviewCount")) || 0;
+            reviewCount++;
+            localStorage.setItem("reviewCount", reviewCount);
+
+            // Display the count
+            document.getElementById("count").textContent = reviewCount;
+
+            // Parse URL parameters and display review information
+            const params = new URLSearchParams(window.location.search);
+
+            // Function to get product name from ID
+            function getProductName(id) {
+                const products = [
+                    { id: "fc-1888", name: "flux capacitor" },
+                    { id: "fc-2050", name: "power laces" },
+                    { id: "fs-1987", name: "time circuits" },
+                    { id: "ac-2000", name: "low voltage reactor" },
+                    { id: "jj-1969", name: "warp equalizer" }
+                ];
+                const product = products.find(p => p.id === id);
+                return product ? product.name : id;
+            }
+
+            // Populate form data from URL parameters
+            const productId = params.get("product");
+            if (productId) {
+                document.getElementById("product").textContent = getProductName(productId);
+            }
+
+            const rating = params.get("rating");
+            if (rating) {
+                document.getElementById("rating").textContent = `${rating} Star${rating !== "1" ? "s" : ""}`;
+            }
+
+            const installDate = params.get("install-date");
+            if (installDate) {
+                document.getElementById("install-date").textContent = installDate;
+            }
+
+            const features = params.getAll("features");
+            if (features.length > 0) {
+                document.getElementById("features").textContent = features.join(", ");
+            }
+
+            const review = params.get("review");
+            if (review) {
+                document.getElementById("review").textContent = review;
+            }
+
+            const username = params.get("username");
+            if (username) {
+                document.getElementById("username").textContent = username;
+            }
+        });
     </script>
-
 </body>
 
 </html>

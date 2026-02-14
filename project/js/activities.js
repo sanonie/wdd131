@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Set current year and last modified
+
     setFooterInfo();
 });
 
@@ -23,10 +23,10 @@ function toggleFavorite(activity) {
     let favorites = getFavoritesFromStorage();
 
     if (favorites.includes(activity)) {
-        // Remove from favorites
+
         favorites = favorites.filter(fav => fav !== activity);
     } else {
-        // Add to favorites
+
         favorites.push(activity);
     }
 
@@ -54,7 +54,7 @@ function loadFavorites() {
         favoritesList.appendChild(favoriteItem);
     });
 
-    // Update buttons to reflect saved favorites
+
     favorites.forEach(activity => updateButtonState(activity));
 }
 
